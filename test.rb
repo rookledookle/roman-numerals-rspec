@@ -1,36 +1,59 @@
 require "rspec"
 require_relative "roman"
 
-# describe "roman" do
-#   it "converts the number 1 to the string I" do
-#     expect(roman(1)).to eq("I")
-#   end
-#   it "converts the number 5 to the string V" do
-#     expect(roman(5)).to eq("V")
-#   end
-#   it "converts the number 10 to the string X" do
-#     expect(roman(10)).to eq("X")
-#   end
-#   it "converts the number 50 to the string L" do
-#     expect(roman(50)).to eq("L")
-#   end
-#   it "converts the number 100 to the string C" do
-#     expect(roman(100)).to eq("C")
-#   end
-# end
+describe Roman do
+  before :each do
+    @roman = Roman.new
+  end
 
-describe "roman_rules" do
+  it "takes 1 and changes it into I" do
+    expect(@roman.roman_classification(1)).to eq("I")
+  end
+  it "takes 5 and changes it into V" do
+    expect(@roman.roman_classification(5)).to eq("V")
+  end
+  it "takes 10 and changes it into X" do
+    expect(@roman.roman_classification(10)).to eq("X")
+  end
+  it "takes 50 and changes it into L" do
+    expect(@roman.roman_classification(50)).to eq("L")
+  end
+  it "takes 100 and changes it into C" do
+    expect(@roman.roman_classification(100)).to eq("C")
+  end
 
-  # [1,5,10,50,100].each do |n|
-  #   it "gets correct key value pair from ROMAN_RULES hash" do
-  #     roman = Roman.new
-  #     expect(roman.roman_rules(n)).to eq(ROMAN_RULES[n])
-  #     expect(roman.roman_rules(n)).not_to be_nil
-  #   end
-  # end
+  it "takes 2 and changes it into II" do
+    expect(@roman.roman_classification(2)).to eq("II")
+  end
+
+  it "takes 3 and changes it into III" do
+    expect(@roman.roman_classification(3)).to eq("III")
+  end
 
   it "takes 4 and changes it into IV" do
-    roman = Roman.new
-    expect(roman.roman_rules_basic(4)).to eq("IV")
+    expect(@roman.roman_classification(4)).to eq("IV")
+  end
+
+  it "takes 6 and changes it into VI" do
+    expect(@roman.roman_classification(6)).to eq("VI")
+  end
+  
+  it "takes 7 and changes it into VII" do
+    expect(@roman.roman_classification(7)).to eq("VII")
+  end
+  
+  it "takes 8 and changes it into VIII" do
+    expect(@roman.roman_classification(8)).to eq("VIII")
+  end
+
+  it "takes 9 and changes it into IX" do
+    expect(@roman.roman_classification(9)).to eq("IX")
+  end
+
+  it "takes 30 and changes it into XXX" do
+    expect(@roman.roman_classification(30)).to eq("XXX")
+  end
+  it "takes 35 and changes it into XXXV" do
+    expect(@roman.roman_classification(35)).to eq("XXXV")
   end
 end
