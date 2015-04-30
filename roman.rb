@@ -28,16 +28,20 @@ class Roman
   def roman_rules_other_double_digit(n)
     round_down_tens = (n/10)*10
     second_digit = n % 10
-
+    first_digit = round_down_tens.to_s.chomp('0').to_i
     case
-      when round_down_tens < 50
-        first_digit = round_down_tens.to_s.chomp('0')
-        answer = ROMAN_HASH[first_digit]
-        if ROMAN_HASH.has_key?(second_digit)
+      when round_down_tens < 40
+        if second_digit == 0 
+          return "X" * first_digit
+        elsif ROMAN_HASH.has_key?(second_digit)
+          answer = "X" * first_digit
           return answer << ROMAN_HASH[second_digit].to_s
         else 
           return nil
         end
+      when round_down_tens === 40
+        answer = "XL"
+        return answer << ROMAN_HASH[second_digit].to_s
       when round_down_tens > 50
       else
         return nil
