@@ -1,6 +1,8 @@
 ## RSpec TDD Exercise: Roman Numerals
 Using [Rails Girls TDD Exercise](http://guides.railsgirls.com/test-driven-development/) as a guide.
 
+*Javascipt version: [Javascript Roman Numeral Converter](https://github.com/natbatwat/roman-numerals-converter-js)*
+
 ####A Quick Look
 ```ruby
 class Roman
